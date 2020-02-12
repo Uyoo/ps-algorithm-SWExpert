@@ -95,15 +95,14 @@ public class Problem_2117 {
 		}
 		
 		while(!queue.isEmpty()) {
-			Pos_2117 q = queue.poll();			
+			Pos_2117 q = queue.poll();	
+			if(q.step == k) {
+				continue;
+			}
 			
 			for(int d=0; d<4; ++d) {
 				int moveY = q.y + directions[0][d];
-				int moveX = q.x + directions[1][d];
-				
-				if(q.step == k) {
-					continue;
-				}
+				int moveX = q.x + directions[1][d];				
 				
 				if(isRanged(moveY, moveX) && !checked[moveY][moveX]) {
 					if(map[moveY][moveX] == 1) {
